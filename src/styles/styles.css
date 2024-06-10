@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+.app {
+  display: flex;
+  height: 100%;
+}
+.app .main {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+.app .main .menu {
+  width: 50px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: #E2D19D;
+  color: #F0EBCE;
+}
+.app .main .menu .menu-item {
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  color: #0D292A;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.app .main .menu .menu-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  width: 0;
+  height: 4px;
+  background-color: #0D292A;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.app .main .menu .menu-item:hover::after {
+  width: 100%;
+  left: 0;
+}
+.app .main .content-left, .app .main .content-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(50vw - 25px);
+  height: 100%;
+  background: #0D292A;
+}
+.app .main .content-left .book-preview {
+  display: flex;
+  height: 504px;
+  width: 315px;
+}
+.app .main .content-left .book-preview .book-wrapper {
+  width: 100%;
+}
+.app .main .content-left .book-preview .book-wrapper .book {
+  height: 504px;
+  width: 315px;
+  position: relative;
+  transition: 0.4s ease-in-out;
+  border-radius: 5px;
+  transform-origin: left center 0px;
+  display: inline-block;
+  perspective: 800px;
+}
+.app .main .content-left .book-preview .book-wrapper .book:hover {
+  transform: rotateZ(-10deg);
+  box-shadow: 20px 10px 50px rgba(255, 255, 255, 0.5);
+}
+.app .main .content-left .book-preview .book-wrapper .book:hover .book-cover {
+  transform: rotateY(-50deg);
+  z-index: 999;
+}
+.app .main .content-left .book-preview .book-wrapper .book .book-cover {
+  background-image: url(../media/book-cover.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 504px;
+  width: 315px;
+  position: absolute;
+  border-radius: 5px;
+  z-index: 10;
+  transition: 0.5s linear;
+  transform-style: preserve-3d;
+  transform-origin: left center 0px;
+}
+.app .main .content-left .book-preview .book-wrapper .book .book-page {
+  height: 100%;
+  width: 315px;
+  position: absolute;
+  background-color: #F0EBCE;
+  z-index: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.app .main .content-left .book-preview .book-wrapper .book .book-page .book-preview-button {
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+  height: 40px;
+  background: #F0EBCE;
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+$accent1: #E2CE99;
+$accent2: #89452E;
+$accent3: #E1D4A7;
+$accent4: #F5CC36;
+$accent5: #F8F5E2;
+$accent6: #d4af37;
+
+$emerald1: #0C2625;
+$emerald2: #134F47;
+$emerald3: #175D52;
+$emerald4: #19665C;
+$emerald5: #092322;
+$emerald6: #1b7931;
+
+// Coolors Palette
+$dark-green: #0D292A;
+$light-green: #19665C;
+$copper: #AC7731;
+$vanilla: #E2D19D;
+$parchment: #F0EBCE;
+
+// Fonts
+$oswald: 'Oswald', sans-serif;
+
+
+.app {
+    display: flex;
+    height: 100%;
+
+    .main {
+        display: flex;
+        height: 100vh;
+        width: 100%;
+
+        .menu {
+            width: 50px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background: $vanilla;
+            color: $parchment;
+
+            .menu-item {
+                transform: rotate(-90deg);
+                white-space: nowrap;
+                color: $dark-green;
+                font-family: $oswald;
+                text-transform: uppercase;
+                font-size: 20px;
+                font-weight: 600;
+                cursor: pointer;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0px;
+                    width: 0;
+                    height: 4px;
+                    background-color: $dark-green;
+                    transition: width 0.3s ease, left 0.3s ease;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+        }
+
+        .content-left, .content-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(50vw - 25px);
+            height: 100%;
+            background: $dark-green;
+        }
+
+        .content-left {
+            .book-preview {
+                display: flex;
+                height: 504px;
+                width: 315px;
+                
+                .book-wrapper {
+                    width: 100%;
+
+                    .book {
+                        height: 504px;
+                        width: 315px;
+                        position: relative;
+                        transition: .4s ease-in-out;
+                        border-radius: 5px;
+                        transform-origin: left center 0px;
+                        display: inline-block;
+                        perspective: 800px;
+
+                        &:hover {
+                            transform: rotateZ(-10deg);
+                            box-shadow: 20px 10px 50px rgba(255,255,255,0.5);
+
+                            .book-cover {
+                                transform: rotateY(-50deg);
+                                z-index: 999;
+                            }
+                        }
+
+                        .book-cover {
+                            background-image: url(../media/book-cover.jpg);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            height: 504px;
+                            width: 315px;
+                            position: absolute;
+                            border-radius: 5px;
+                            z-index: 10;
+                            transition: .5s linear;
+                            transform-style: preserve-3d;
+                            transform-origin: left center 0px;
+                        }
+
+                        .book-page {
+                            height: 100%;
+                            width: 315px;
+                            position: absolute;
+                            background-color: $parchment;
+                            z-index: 0;
+                            border-radius: 6px;
+                            overflow: hidden;
+                            display: flex;
+                            justify-content: end;
+                            align-items: center;
+
+                            .book-preview-button {
+                                margin-right: 10px;
+                                border: none;
+                                cursor: pointer;
+                                width: 80px;
+                                height: 40px;
+                                background: $parchment;
+                                font-family: $oswald;
+                                font-size: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
